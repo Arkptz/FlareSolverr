@@ -12,11 +12,10 @@ from selenium.webdriver.chrome.webdriver import WebDriver
 
 import undetected_chromedriver as uc
 
-UA = UserAgent(os=["windows"], browsers=["chrome", "firefox"])
 FLARESOLVERR_VERSION = None
 CHROME_EXE_PATH = None
 CHROME_MAJOR_VERSION = None
-USER_AGENT = None
+USER_AGENT = "Mozilla/5.0 (Windows; Windows NT 6.1; WOW64; en-US) AppleWebKit/601.7 (KHTML, like Gecko) Chrome/52.0.1530.137 Safari/603"
 XVFB_DISPLAY = None
 PATCHED_DRIVER_PATH = None
 
@@ -148,7 +147,7 @@ def get_webdriver(proxy: dict = None) -> WebDriver:
         options.add_argument("--lang=%s" % language)
 
     # Fix for Chrome 117 | https://github.com/FlareSolverr/FlareSolverr/issues/910
-    options.add_argument("--user-agent=%s" % UA.random)
+    options.add_argument("--user-agent=%s" % USER_AGENT)
 
     proxy_extension_dir = None
     if proxy and all(key in proxy for key in ["url", "username", "password"]):
