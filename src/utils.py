@@ -26,7 +26,7 @@ def get_config_log_html() -> bool:
 
 
 def get_config_headless() -> bool:
-    return os.environ.get("HEADLESS", "false").lower() == "true"
+    return os.environ.get("HEADLESS", "true").lower() == "true"
 
 
 def get_flaresolverr_version() -> str:
